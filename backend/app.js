@@ -16,7 +16,14 @@ app.get('/api/v1/create-script', function (req, res) {
     //fill up the resource attributes
     //ignore non-required not specified attributes
   });
-  res.send(`terraform script created`)
+  res.send(`resource "aws_vpc" "main" {
+    cidr_block       = "10.0.0.0/16"
+    instance_tenancy = "default"
+  
+    tags = {
+      Name = "main"
+    }
+  }`)
 })
 
 // start the server
